@@ -9,8 +9,8 @@ def product_list(request, category_slug=None):
     products = Product.objects.filter(available=True)
     
     if category_slug:
-        category = get_object_or_404(Category, slag=category_slug)
-        products = product.filter(category=category)
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
 
     return render(request, 
                  'shop/product/list.html',
@@ -28,4 +28,4 @@ def product_detail(request, id, slug):
     
     return render(request,
                  'shop/product/detail.html',
-                 {product: product})
+                 {'product': product})
